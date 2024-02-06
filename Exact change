@@ -1,0 +1,39 @@
+print('Enter change ammount to be returned to customer')
+value = int(input())
+
+if value < 0:
+    print('No Change')
+else:
+    dollars = value // 100
+    value %= 100
+    quarters = value // 25
+    value %= 25
+    dimes = value // 10
+    value %= 10
+    nickels = value // 5
+    value %= 5
+    pennies = value
+    if dollars > 1:
+        print(dollars, 'Dollars')
+    elif dollars == 1:
+        print(dollars, 'Dollar')
+
+    if quarters > 1:
+        print(quarters, 'Quarters')
+    elif quarters == 1:
+        print(quarters, 'Quarter')
+
+    if dimes > 1:
+        print(dimes, 'Dimes')
+    elif dimes == 1:
+        print(dimes, 'Dime')
+
+    if nickels > 1:
+        print(nickels, 'Nickels')
+    elif nickels == 1:
+        print(nickels, 'Nickel')
+
+    if pennies > 1:
+        print(pennies, 'Pennies')
+    elif pennies == 1:
+        print(pennies, 'Penny')
