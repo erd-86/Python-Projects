@@ -1,0 +1,10 @@
+from datetime import date
+
+# Get user data from inputs
+name = (input('What is your name? '))
+age = int(input('How old are you? '))
+# Calculations
+current_year = date.today().year
+year_born = current_year - age
+# Create Output
+print('Hello {}! You were born in {}.'.format(name, year_born))
