@@ -1,0 +1,41 @@
+# The dictionary links a room to other rooms.
+rooms = {
+    'Great Hall': {'South': 'Bedroom'},
+    'Bedroom': {'North': 'Great Hall', 'East': 'Cellar'},
+    'Cellar': {'West': 'Bedroom'}
+}
+
+directions = {'North', 'South', 'East', 'West'}
+
+# Starting player in a starting room
+currentRoom = 'Great Hall'
+
+# Printing Menu and Commands list, getting first command
+print('Text Adventure Game')
+print('Move commands: go South, go North, go East, go West, exit')
+print('-' * 60)  # line break
+print('\n')
+
+# Loop forever until user enters exit's
+while currentRoom != 'exit':
+    print('You are in the', currentRoom)
+    print('-' * 30)
+    print('Enter your move:')         # prompts user for command
+    user_command = input()            # captures user command
+    if user_command == 'exit' or user_command == 'Exit':          # exit sequence
+        currentRoom = 'exit'
+        print('\n')                              # spacing between command and feedback
+        print('Thanks for playing, see you next time')
+    else:                                            # Movement between rooms loop
+        user_command = user_command.split()
+        user_command = user_command[1]
+        if user_command in directions:
+            if user_command in rooms[currentRoom]:
+                currentRoom = rooms[currentRoom][user_command]     # Assigns new room value to currentRoom to be looped
+                print('\n')
+            else:                                              # if direction is not in the rooms nested dict
+                print("You can't go that way")
+                print('\n')
+        else:                                               # if user does not give a valid movement command
+            print('Invalid move!')
+            print('\n')
